@@ -30,5 +30,11 @@ namespace AngelSix.WPF
             First f = new First();
             f.Show();
         }
+
+        private void fileManagerButton_Click(object sender, RoutedEventArgs e)
+        {
+            FileManager fm = new FileManager();
+            fm.Show();
+        }
     }
 }

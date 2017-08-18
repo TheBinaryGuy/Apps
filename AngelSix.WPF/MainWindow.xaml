@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="First" x:Name="firstButton" Click="firstButton_Click" />
+        <StackPanel>
+            <Button Content="First" x:Name="firstButton" Click="firstButton_Click" />
+            <Button Content="File Manager" x:Name="fileManagerButton" Click="fileManagerButton_Click" />
+        </StackPanel>
     </Grid>
 </Window>
