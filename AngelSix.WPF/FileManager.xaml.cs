@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace AngelSix.WPF
 {
@@ -19,7 +16,7 @@ namespace AngelSix.WPF
         {
             InitializeComponent();
 
-            this.DataContext = new DirectoryStructureViewModel();
+            DataContext = new DirectoryStructureViewModel();
         }
 
         #endregion        
