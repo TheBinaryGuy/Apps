@@ -16,22 +16,18 @@ namespace AngelSix.WPF
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // Get the full path
-            var path = (string)value;
-
-            if (path == null)
-                return null;
-
-            // Get the name of the file/folder
-            string name = DirectoryStructure.GetFileFolderName(path);
-
+            // Set the icon to file type by default
             string image = "Images/file.png";
 
-            // If the name is blank, presume it's a drive
-            if (String.IsNullOrEmpty(name))
-                image = "Images/drive.png";
-            else if (new FileInfo(path).Attributes.HasFlag(FileAttributes.Directory))
-                image = "Images/folder-closed.png";
+            switch ((DirectoryItemType)value)
+            {
+                case DirectoryItemType.Drive:
+                    image = "Images/drive.png";
+                    break;
+                case DirectoryItemType.Folder:
+                    image = "Images/folder-closed.png";
+                    break;
+            }
 
             return new BitmapImage(new Uri($"pack://application:,,,/{image}"));
         }

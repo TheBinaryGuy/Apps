@@ -11,13 +11,17 @@ namespace AngelSix.WPF
     public partial class FileManager : Window
     {
         #region Constructor
+
         /// <summary>
         /// Default Constructor
         /// </summary>
         public FileManager()
         {
             InitializeComponent();
+
+            this.DataContext = new DirectoryStructureViewModel();
         }
+
         #endregion        
     }
 }

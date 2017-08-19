@@ -12,7 +12,7 @@ namespace AngelSix.WPF
     public class DirectoryItem
     {
         /// <summary>
-        /// Type of this item
+        /// Type of the item
         /// </summary>
         public DirectoryItemType Type { get; set; }
 

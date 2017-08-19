@@ -24,7 +24,7 @@ namespace AngelSix.WPF
         /// </summary>
         /// <param name="fullPath">Full path to the directory</param>
         /// <returns></returns>
-        public static List<DirectoryItem> GetDirectoryContent(string fullPath)
+        public static List<DirectoryItem> GetDirectoryContents(string fullPath)
         {
             // Create Empty List
             var items = new List<DirectoryItem>();
