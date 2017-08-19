@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AngelSix.WPF
 {
@@ -20,6 +17,45 @@ namespace AngelSix.WPF
         {
             // Get Logical Drives
             return Directory.GetLogicalDrives().Select(drive => new DirectoryItem { FullPath = drive, Type = DirectoryItemType.Drive }).ToList();
+        }
+
+        /// <summary>
+        /// Gets the directory's top level content
+        /// </summary>
+        /// <param name="fullPath">Full path to the directory</param>
+        /// <returns></returns>
+        public static List<DirectoryItem> GetDirectoryContent(string fullPath)
+        {
+            // Create Empty List
+            var items = new List<DirectoryItem>();
+
+            #region Get Folders
+
+            try
+            {
+                var dirs = Directory.GetDirectories(fullPath);
+
+                if (dirs.Length > 0)
+                    items.AddRange(dirs.Select(dir => new DirectoryItem { FullPath = dir, Type = DirectoryItemType.Folder }));
+            }
+            catch { }
+
+            #endregion
+
+            #region Get Files
+
+            try
+            {
+                var fs = Directory.GetFiles(fullPath);
+
+                if (fs.Length > 0)
+                    items.AddRange(fs.Select(file => new DirectoryItem { FullPath = file, Type = DirectoryItemType.File }));
+            }
+            catch { }
+
+            #endregion
+
+            return items;
         }
 
         #region Helpers

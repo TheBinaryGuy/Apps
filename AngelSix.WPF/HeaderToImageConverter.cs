@@ -23,7 +23,7 @@ namespace AngelSix.WPF
                 return null;
 
             // Get the name of the file/folder
-            string name = FileManager.GetFileFolderName(path);
+            string name = DirectoryStructure.GetFileFolderName(path);
 
             string image = "Images/file.png";
 
