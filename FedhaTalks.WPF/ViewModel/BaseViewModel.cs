@@ -1,7 +1,7 @@
 ﻿using PropertyChanged;
 using System.ComponentModel;
 
-namespace AngelSix.WPF
+namespace FedhaTalks.WPF
 {
     /// <summary>
     /// A base ViewModel that fires Property Changed Event as needed
