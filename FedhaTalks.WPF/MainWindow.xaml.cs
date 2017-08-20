@@ -23,6 +23,8 @@ namespace FedhaTalks.WPF
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new WindowViewModel(this);
         }
     }
 }
