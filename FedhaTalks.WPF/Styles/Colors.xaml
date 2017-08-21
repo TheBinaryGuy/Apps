@@ -18,7 +18,7 @@
     <SolidColorBrush x:Key="ForegoundLightBrush" Color="{StaticResource ForegoundLight}" />
 
     <Color x:Key="ForegoundDark">#bdbdbd</Color>
-    <SolidColorBrush x:Key="ForegoundDarkBrush" Color="{StaticResource ForegoundDark}" />
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegoundDark}" />
 
     <Color x:Key="WordBlue">#3099c5</Color>
     <SolidColorBrush x:Key="WordBlueBrush" Color="{StaticResource WordBlue}" />

@@ -5,12 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FedhaTalks.WPF"
       mc:Ignorable="d"
-      MinWidth="{Binding WindowMinimumWidth}"
-      MinHeight="{Binding WindowMinimumHeight}"
       d:DesignHeight="600" d:DesignWidth="900"
       Title="LoginPage">
 
-    <Grid>
-        
-    </Grid>
+    <Border Background="{StaticResource WordBlueBrush}">
+        <Grid>
+            <!--Blue background-->
+            <Grid.Background>
+                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="/Images/Backgrounds/emoji-background.png" />
+            </Grid.Background>
+            <!--Main content scroll-->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center">
+                    <!--Login main content white box-->
+                    <Border Background="{StaticResource ForegoundLightBrush}" CornerRadius="10" Padding="15 50 15 15" Width="400" Margin="50 50 50 0">
+                        <StackPanel>
+                            <!--Sign Up header-->
+                            <TextBlock Text="Sign Up" FontSize="{StaticResource FontSizeLarge}" FontFamily="{StaticResource LatoRegular}" Foreground="{StaticResource WordBlueBrush}" />
+                            <!--Sign Up sub-text-->
+                            <TextBlock Text="It's about to get fun!" Margin="0 0 0 20" FontSize="{StaticResource FontSizeRegular}" Foreground="{StaticResource ForegroundDarkBrush}" />
+                            <TextBox Tag="Email" />
+                            <TextBox Tag="Password" Margin="0 0 0 30" />
+                            <Button Content="Next" HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                    <Button Style="{StaticResource TextButton}" Content="I already have an account" HorizontalAlignment="Center" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
 </Page>
