@@ -12,7 +12,7 @@
         x:Name="AppWindow"
         MinWidth="{Binding WindowMinimumWidth}"
         MinHeight="{Binding WindowMinimumHeight}"
-        Title="Welcome, Friend!" Height="600" Width="900">
+        Title="FedhaTalks" Height="600" Width="900">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -59,8 +59,12 @@
                                             <Image Source="Images/Logo/fedhatalks.png" />
                                         </Button>
                                         <!--Title-->
-                                        <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}" />
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="5">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}" FontSize="{StaticResource FontSizeRegular}"> <!--="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}"-->
+                                                    <Run Text="F" Foreground="{StaticResource WordOrangeBrush}" /><Run Text="e" Foreground="{StaticResource WordBlueBrush}" /><Run Text="d" Foreground="{StaticResource WordBlueBrush}" /><Run Text="h" Foreground="{StaticResource WordBlueBrush}" /><Run Text="a" Foreground="{StaticResource WordBlueBrush}" /><Run Text="T" Foreground="{StaticResource WordRedBrush}" /><Run Text="a" Foreground="{StaticResource WordGreenBrush}" /><Run Text="l" Foreground="{StaticResource WordGreenBrush}" /><Run Text="k" Foreground="{StaticResource WordGreenBrush}" /><Run Text="s" Foreground="{StaticResource WordGreenBrush}" />
+                                                </TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
                                         <!--Window Buttons-->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
@@ -70,7 +74,12 @@
                                         </StackPanel>
                                     </Grid>
                                     <!--Page Content-->
-                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}" Background="{StaticResource WordBlueBrush}">
+                                        <Border>
+                                            <Border.Background>
+                                                <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="Images/Backgrounds/emoji-background.png" />
+                                            </Border.Background>
+                                        <Border>
                                         <ContentPresenter Content="{TemplateBinding Content}" />
                                     </Border>
                                 </Grid>
@@ -92,6 +101,6 @@
     </WindowChrome.WindowChrome>
     
     <Grid Background="{StaticResource ForegoundLightBrush}">
-        
+        <Frame x:Name="MainFram" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
 </Window>

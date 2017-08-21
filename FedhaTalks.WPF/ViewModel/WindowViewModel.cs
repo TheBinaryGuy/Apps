@@ -31,6 +31,11 @@ namespace FedhaTalks.WPF
         /// </summary>
         private int mWindowRadius = 10;
 
+        /// <summary>
+        /// The last known dock position
+        /// </summary>
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
+
         #endregion
 
         #region Public Properties
@@ -46,9 +51,15 @@ namespace FedhaTalks.WPF
         public double WindowMinimumHeight { get; set; } = 400;
 
         /// <summary>
+        /// True if the window should be borderless because it is docked or maximized
+        /// </summary>
+        public bool Borderless {  get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
+
+        /// <summary>
         /// The size of the resize border around window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get => Borderless ? 0 : 6; }
+
         /// <summary>
         /// Size of the resize border around the window, taking into account the outer margin
         /// </summary>
@@ -57,7 +68,7 @@ namespace FedhaTalks.WPF
         /// <summary>
         /// Padding of the inner content of the main window
         /// </summary>
-        public Thickness InnerContentPadding { get => new Thickness(ResizeBorder); }
+        public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
         /// <summary>
         /// Margin around the window for the drop shadow
@@ -84,6 +95,11 @@ namespace FedhaTalks.WPF
         /// </summary>
         public int TitleHeight { get; set; } = 42;
         public GridLength TitleHeightGridLength { get => new GridLength(TitleHeight + ResizeBorder); }
+
+        /// <summary>
+        /// Current page of the application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
