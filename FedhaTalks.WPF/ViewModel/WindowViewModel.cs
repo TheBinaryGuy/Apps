@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace FedhaTalks.WPF
 {
@@ -34,6 +36,16 @@ namespace FedhaTalks.WPF
         #region Public Properties
 
         /// <summary>
+        /// Gets or Sets the Minimum Width of the Window
+        /// </summary>
+        public double WindowMinimumWidth { get; set; } = 400;
+
+        /// <summary>
+        /// Gets or Sets the Minimum Height of the Window
+        /// </summary>
+        public double WindowMinimumHeight { get; set; } = 400;
+
+        /// <summary>
         /// The size of the resize border around window
         /// </summary>
         public int ResizeBorder { get; set; } = 6;
@@ -41,6 +53,11 @@ namespace FedhaTalks.WPF
         /// Size of the resize border around the window, taking into account the outer margin
         /// </summary>
         public Thickness ResizeBorderThickness { get => new Thickness(ResizeBorder + OuterMarginSize); }
+
+        /// <summary>
+        /// Padding of the inner content of the main window
+        /// </summary>
+        public Thickness InnerContentPadding { get => new Thickness(ResizeBorder); }
 
         /// <summary>
         /// Margin around the window for the drop shadow
@@ -66,6 +83,31 @@ namespace FedhaTalks.WPF
         /// The height of the title bar
         /// </summary>
         public int TitleHeight { get; set; } = 42;
+        public GridLength TitleHeightGridLength { get => new GridLength(TitleHeight + ResizeBorder); }
+
+        #endregion
+
+        #region Commands
+
+        /// <summary>
+        /// Command to minimize the window
+        /// </summary>
+        public ICommand MinimizeCommand { get; set; }
+
+        /// <summary>
+        /// Command to maximize the window
+        /// </summary>
+        public ICommand MaximizeCommand { get; set; }
+
+        /// <summary>
+        /// Command to close the window
+        /// </summary>
+        public ICommand CloseCommand { get; set; }
+
+        /// <summary>
+        /// Command for system menu
+        /// </summary>
+        public ICommand MenuCommand { get; set; }
 
         #endregion
 
@@ -89,6 +131,32 @@ namespace FedhaTalks.WPF
                 OnPropertyChanged(nameof(WindowRadius));
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
+
+            // Create commands
+            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
+            CloseCommand = new RelayCommand(() => mWindow.Close());
+            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
+
+            // Fix window resize issue
+            var resizer = new WindowResizer(mWindow);
+        }
+
+        #endregion
+
+        #region Helpers
+
+        /// <summary>
+        /// Gets the current mouse position
+        /// </summary>
+        /// <returns></returns>
+        private Point GetMousePosition()
+        {
+            // Position of the mouse relative to the window
+            var position = Mouse.GetPosition(mWindow);
+
+            // Add the window position so it's a "ToScreen"
+            return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
         }
 
         #endregion
