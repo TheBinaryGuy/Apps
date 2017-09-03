@@ -25,7 +25,7 @@
                             <!--Sign Up sub-text-->
                             <TextBlock Text="It's about to get fun!" Margin="0 0 0 20" FontSize="{StaticResource FontSizeRegular}" Foreground="{StaticResource ForegroundDarkBrush}" />
                             <TextBox Tag="Email" />
-                            <TextBox Tag="Password" Margin="0 0 0 30" />
+                            <PasswordBox x:Name="PasswordText" Tag="Password" Margin="0 0 0 30" />
                             <Button Content="Next" HorizontalAlignment="Center" />
                         </StackPanel>
                     </Border>

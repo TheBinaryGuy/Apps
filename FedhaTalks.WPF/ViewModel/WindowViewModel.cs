@@ -12,7 +12,7 @@ namespace FedhaTalks.WPF
     /// <summary>
     /// ViewModel for the custom flat window
     /// </summary>
-    class WindowViewModel : BaseViewModel
+    public class WindowViewModel : BaseViewModel
     {
         #region Private Properties
 
