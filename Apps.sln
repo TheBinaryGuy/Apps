@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FedhaTalks.WPF", "FedhaTalks.WPF\FedhaTalks.WPF.csproj", "{9FF98C80-DBBE-49DD-99A6-D160F8A40A16}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngelSix.WPF", "AngelSix.WPF\AngelSix.WPF.csproj", "{425ACC3E-66CC-4602-987A-826E7EB019D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{9FF98C80-DBBE-49DD-99A6-D160F8A40A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FF98C80-DBBE-49DD-99A6-D160F8A40A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FF98C80-DBBE-49DD-99A6-D160F8A40A16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{425ACC3E-66CC-4602-987A-826E7EB019D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{425ACC3E-66CC-4602-987A-826E7EB019D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{425ACC3E-66CC-4602-987A-826E7EB019D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{425ACC3E-66CC-4602-987A-826E7EB019D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
